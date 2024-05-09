@@ -44,19 +44,13 @@ def show_scoreboard():
 @app.route('/increase_score', methods=['GET', 'POST'])
 def increase_score():
     global scoreboard
-    scores = [team["score"] for team in scoreboard]
-    print(scores)
-    
 
     json_data = request.get_json()   
     team_id = json_data["id"]  
-    print(scores[team_id-1])
-    temp=scores[team_id-1]
     
     for team in scoreboard:
         if team["id"] == team_id:
             team["score"] += 1
-     
 
             
 
